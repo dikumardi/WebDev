@@ -1,0 +1,9 @@
+
+Block : matlab ki space rahega bagal me phir v next line se suru hoga
+eg- <p>paragraph 1</p>
+<p> paragraph 2</p>
+
+
+
+Inline element: Inline element matlab ek he line me aate hai 
+eg- <span>, <a>, <img>, <strong>, <em>

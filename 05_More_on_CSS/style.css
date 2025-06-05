@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#bg{
+    height: 100%;
+    width:100%;
+    background-image: url(https://plus.unsplash.com/premium_photo-1746718185468-86c85c1f431e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+/* #box{
+    height: 200px;
+    width: 200px;
+    background: linear-gradient(to right  bottom,orange,white,green,red);
+    background: radial-gradient(orange,red);
+    border-radius: 50%;
+    background-image: url(https://images.unsplash.com/photo-1746091066530-4a7c0319df8b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+} */
+
+
+ /*  pixels px ,percentage %  */
+
+/* #box{
+    height: 40%;
+    width: 40%;
+    background-color: crimson;
+} */
+
+ /* position absolute */
+/* #box1{
+    height: 200px;
+    width: 200px;
+    background-color: crimson;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+}
+#box2{
+    height: 200px;
+    width: 200px;
+    background-color: lightsalmon;
+      position: absolute;
+    top: 40%;
+    left: 40%;
+    z-index: 2;
+}
+    
+#box3{
+    height: 200px;
+    width: 200px;
+    background-color: seagreen;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+} */
+
+ /* Center the div */
+/* #center{
+     height: 200px;
+    width: 200px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+} */
+
+/* position relative */
+
+/* #parent{
+    height: 400px;
+    width: 400px;
+    background-color: crimson;
+ position: relative;
+}
+#child{
+    height: 15%;
+    width: 25%;
+    background-color: cadetblue;
+    position: absolute;
+    left: 50%;
+} */
+ 
+/* Flex */
+/* #parent{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(44, 73, 99);
+    display: flex;
+    align-items: center; /* cross axis   
+    justify-content: space-between;  /*main axis 
+    flex-direction:column ;
+}
+#child1{
+    width: 200px;
+    height: 200px;
+    background-color: crimson;
+
+}
+#child2{
+    width: 200px;
+    height: 200px;
+    background-color: slateblue;
+}
+#child3{
+    width: 200px;
+    height: 200px;
+    background-color: sandybrown;
+}
+#child4{
+        width: 200px;
+    height: 200px;
+    background-color: darkgoldenrod;
+} */
+ #parent{
+    height:100% ;
+    width: 100%;
+    background-color: rgb(51, 86, 97);
+    padding: 40px;
+   display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    /* align-items: center; */
+ }
+ .child{
+height: 200px;
+width: 200px;
+background-color: crimson;
+border: 3px solid white ;
+flex-shrink: 0;
+ }

@@ -111,3 +111,11 @@ Eg: margin: 15px;
             padding: ;
             border-radius: ;
          
+pixels px ,percentage %
+
+pixels -as it is doesnot depend on anything
+
+percentage-- depend on parent
+
+position relative 
+position absolute

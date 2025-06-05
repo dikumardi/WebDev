@@ -1,0 +1,113 @@
+       INTRODUCTION TO CSS (Cascading style sheet)
+            
+CSS: Cascading style sheet
+ used for styling to look website beautiful
+
+ selector{
+    property:value;
+ }
+
+ h1{
+    color:red;
+ }
+
+ 
+Inline Css:     <h1 style="color: blue;">This is First Heading</h1>
+
+Internal CSS:write above head   --  <style>
+                                     selector{
+                                        property:value;
+                                      }
+                                   </style>
+
+ External CSS: just above write this line
+     <link rel="stylesheet" href="style.css">
+ 
+ universal selector :  *{
+
+                    }
+
+    element selector : p{
+
+    } ;
+
+     class selector : it can be used by . symbol
+     class can be repeated
+    
+
+     id : id should not be repeated and it can be represented by # symbol
+
+     Attribute selector :
+     <input type="text">
+    <input type="email">
+    want to select specific one like email then below is the one how to write attribute selector
+
+    input[type="email"]{
+
+    }
+
+    selector precendences(Specificity & importance)
+        * - Sabse kam priority (0) 
+        p tag - Element selector — priority = 1 *
+        . - Class selector — priority = 10
+        # - ID selector — priority = 100
+
+
+        Color Representations 
+        rgb(red, green, blue); 
+        maximum go upto 0 to 255
+
+        rgba - a means transparent  0 means transparent and 1 means we can see the color
+
+        0	Fully transparent (color dikhega hi nahi)
+          1	Fully visible (color puri tarah dikhai dega)
+              0.5	50% transparent (aadha transparent)
+
+              hex code :
+
+              A hex color code starts with a # symbol and is followed by 6 hexadecimal digits (0-9, a-f).
+Each pair of digits represents:
+
+RR – Red (00 to ff)
+
+GG – Green (00 to ff)
+
+BB – Blue (00 to ff)
+              
+
+               Box Model 
+
+         
+            Content
+
+The actual text, image, or element.
+
+Set by width and height.
+
+Padding
+
+Space inside the element, between content and border.
+
+Eg: padding: 10px;
+
+Border
+
+Line around the padding/content.
+
+Eg: border: 2px solid black;
+
+Margin
+
+Space outside the element, separating it from others.
+
+Eg: margin: 15px;
+
+
+ /* Borders */
+         border properties:
+            border-width:;
+            border-color:;
+            border-style:solid ;
+            padding: ;
+            border-radius: ;
+         

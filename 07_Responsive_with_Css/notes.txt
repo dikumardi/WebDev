@@ -1,0 +1,3 @@
+pixels - (px)  --- is fixed value it cannot be changed according to its screen
+
+ 

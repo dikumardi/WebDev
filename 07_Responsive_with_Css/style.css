@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.parent{
+    height: 400px;
+    width: 400px;
+    background-color: aquamarine;
+}
+.child{
+    height: 100px;
+    width: 100px;
+    background-color: brown;
+}

@@ -1,3 +1,37 @@
-pixels - (px)  --- is fixed value it cannot be changed according to its screen
+      Units in css-  px % em  vh vw
 
- 
+pixels - (px)  --- is fixed value it cannot be changed according to its screen
+Jab aapko fixed, exact size chahiye tab use kar sakte ho
+
+ Percentage (%) unit depend upon parent
+
+ rem - generally used for font size 
+ -Based on 	Root (html) font-size
+ by default is 16px
+
+ Depend karta hai root element (html)font-size
+
+ 1rem = 16px
+ 2rem = 32px
+
+ html ka font-size by-default hota hai 16px
+ iska matlab hai ki hum overide kar sakte hai 
+ maan lo html ka font-size bada k 20px kar liye agar hum h1 ka  font-size ko 2rem dete hai to 40px hoga tab 
+
+ "maan lo html ka font-size bada k 20px kar liye agar hum h1 ka font-size ko 2rem dete hai to 40px hoga tab"
+
+
+"1rem = 16px, 2rem = 32px"
+ Correct, but only if html font-size = 16px.
+          
+            em units
+
+ em --em ka matlab hota hai ki parent ke font-size ke hisaab se size set hota hai.
+  --em depend on Parent element font-size
+
+             viewport
+ -Viewport ka matlab hai screen ka wo hissa jahan par website dikhai deti hai.
+Ye device ke screen size ke hisaab se badal jaata hai — jaise mobile, tablet, ya desktop.
+
+ vh- depend on viewport height
+ vw- depend on viewport width

@@ -35,3 +35,6 @@ Ye device ke screen size ke hisaab se badal jaata hai — jaise mobile, tablet, 
 
  vh- depend on viewport height
  vw- depend on viewport width
+
+ flex-grow: 1 
+ parent m jitna v size available ho Sab occupy kar lo 

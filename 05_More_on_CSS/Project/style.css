@@ -1,26 +1,111 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html,
-body{
+body {
     width: 100%;
     height: 100%;
 }
-header{
+
+header {
     height: 70px;
     background-color: rgb(62, 61, 61);
     align-items: center;
 }
-h1{
+
+h1 {
     text-align: center;
     padding: 20px;
+    color: white;
 }
-nav{
+
+nav {
     text-align: center;
     padding: 10px;
     height: 40px;
     background-color: whitesmoke;
     color: black;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+}
+
+.leftheading {
+    width: 200px;
+    height: 116vh;
+    padding: 10px 50px 10px 15px;
+    background-color: rgb(232, 232, 232);
+}
+
+.leftheading h3 {
+    margin-bottom: 10px;
+}
+
+.leftheading p {
+    line-height: 2.5;
+    color: rgb(104, 104, 104);
+    text-decoration: dotted;
+
+}
+
+.rightheading {
+    /* background-color: aquamarine; */
+    width: 90%;
+
+}
+.rightheading h1{
+    color: black;
+}
+
+.images {
+    width: 100%;
+    /* height: 200px; */
+    display: flex;
+    justify-content: space-around;
+
+
+
+}
+.image-1{       
+    width: 350px;
+    height: 500px;
+    background-color: red;
+}
+
+.image-2{
+    width: 350px;
+    height: 500px;
+    background-color: rosybrown;
+
+}
+.image-3{
+    width: 350px;
+    height: 500px;
+    background-color:cadetblue;
+}
+.main{
+    padding: 40px;
+}
+.main p {
+ line-height: 1.5;
+ font-weight: 700;
+
+}
+.main h2{
+padding: 10px;
+}
+.footer{
+    height: 70px;
+    background-color: rgb(75, 75, 75);
+    width: 100%;
+}
+.footer p {
+    text-align: center;
+    color: white;
+    padding: 20px;
 }

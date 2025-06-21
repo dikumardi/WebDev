@@ -130,6 +130,14 @@ console.log(str.indexOf("Script") !== -1);
 
 
 /**9. Create an array of 5 numbers and log the sum using .reduce(). */
+let arr = [1,2,3,4,5]
+
+let answer = arr.reduce(function (acc,val) {
+   return acc + val ; 
+},0)
+
+console.log(answer);
+
 
 /**10. Explain the difference between undefined, null, and NaN with examples */
 

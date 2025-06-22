@@ -88,15 +88,13 @@ for (let i = 0; i <= 100; i++) {
 }
 console.log(sum);
 
-/** Create a nested loop to print a star pattern. */
+/** Create a nested loop to print a star pattern. **/
 
 
-/** Use a for...of loop to iterate over the string "JavaScript  */
+/** Use a for...of loop to iterate over the string "JavaScript  **/
 
 let str = "JavaScript";
 
-for (let i of str ) {
-    
-    console.log(i);
-    
+for (let i of str ) { 
+   console.log(i);
 }

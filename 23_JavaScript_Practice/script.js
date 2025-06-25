@@ -28,9 +28,7 @@ console.log([... new Set(arr2)].sort(function (a,b) {
 })[1]);
 
 
-/**Sort an array in descending order.  
-
-**/
+/**  Sort an array in descending order.  **/
 
 let num = [5, 2, 9, 1, 5, 6];
 

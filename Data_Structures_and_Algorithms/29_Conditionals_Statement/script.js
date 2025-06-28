@@ -117,4 +117,14 @@ console.log(amount);
  */
 
 //Loops
+/**
+      entry control loop --- for while
+      exit control loop --- do-while
 
+*/
+
+// declare/initilize ; condition , change
+  for(let i = 1 ; i<= 50; i++){
+   console.log("hello world!");
+
+ }

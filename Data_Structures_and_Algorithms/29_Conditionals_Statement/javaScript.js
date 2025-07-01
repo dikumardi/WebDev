@@ -144,6 +144,100 @@ function hello( ) {
   
  }
 
- //Switch
+ //forEach forEach loops sif array pe chalta hai matlab ki jab v tumhare pass array ho ,tab use me kon aata hai forEach loop
 
+ //
+
+ var arr1 = [1,2,3,4,5,6,7,8,9];
+
+ arr1.forEach(function (val) {
+  console.log(val + 2 );
+  
+ })
+
+ //Forin
+ //object par loop karne k liye hota hai forin loop
+
+  var obj1 ={
+  name:"hehe",
+  age:11,
+  city:'abc'
+  }
+
+  for(var heh in obj1){
+    console.log(heh , obj1[heh]);
+    
+  }
+
+  //do while ---
+  do{
+console.log("Hello world");
+a++
+  }while(a < 12)
+
+    //callback function
+  // jab v koi asa code bad me chalta hai usse hum e function de dete hai jab complete ho jana aur chalana dena aur wo function jo hum dete hai wo normal function hota hai aur use kahate hai callback function
+
+  setTimeout(function () {
+    console.log(" 2 second bad chalow ");
+    
+  },2000);
+
+
+  //first class function
+  // js me ek concept hai jiska matlab hai ki aap function ko use kar sakte hai as a value
+
+  var arr4 = [1,2,3]
+
+  var yo = {
+    name : "username",
+    age :54
+
+  }
+
+  delete yo.age;
+
+  /**
+   Hofs - Higher order function are the function which accept a function in a parameter or return a function or both
+
+      function abcd(val) {
+   }
+   abcd(function () {
+    
+   });
+
+
+   return
+
+   function abcd() {
+  return function () {
+    
+  }
+}
+   **/
  
+
+/**  Constructor function --- jab aapke pass asa koi v moka hai
+
+function oreobiscuit() {
+  this.name = "fdda";
+  this.age = 22;
+  
+}
+var ans = new oreobiscuit(); 
+
+**/
+
+/**iife - immediately invoked function expression --- turant chalana ki tareka hote hai hum koi v private variable bana paye */
+
+
+(function () {
+   let xyz = 12; 
+
+   return {}
+})()
+
+/**
+  
+ 
+  **/

@@ -241,3 +241,61 @@ var ans = new oreobiscuit();
   
  
   **/
+
+/**   Var , let and const 
+  
+  var - old(Es-5) -- can be re-declare and re-assign
+
+  let and const (Es-6)
+  
+
+
+  **/
+ 
+  /**Practice Question* */
+  //1. Declare your name and city using const  and your age using  let
+
+
+  const name = 'username' ;
+  const city =  "abc" ;
+  let age = 21;
+
+  //. Try this and observe the result:
+/*
+ let x = 5;
+ let x = 10; 
+ */
+
+ /*
+  3. Guess the output:
+ 
+ console.log(count);  
+ var count = 42;
+
+ Ans : undefined (here hoisting came )
+   */
+
+
+/* Create a const object and add a new key to it — does it work? */
+const object = {
+  name : "hey",
+  ages : 24 ,
+}
+object.ages = 10 ;
+console.log(object);
+
+
+  
+/**Try accessing a let variable before declaring it — what error do you see */
+
+console.log(access);
+let access = 21 ;
+
+//Ans :  Cannot access 'access' before initialization
+
+/**Change a const array by pushing a value. Will it throw an error? */
+const d =  10 ;
+
+d = 20 ;
+
+console.log(d);

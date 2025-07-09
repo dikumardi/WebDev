@@ -51,3 +51,4 @@ console.log(mul);
 div = num1 / num2 ;
 console.log(div);
 
+

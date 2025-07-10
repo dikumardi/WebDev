@@ -20,12 +20,12 @@ var nm = "hehe";
 // console.log(x);
 // output 2 because var doesn't respect braces
 
-let a = 10 ;
-{
-    let a = 20;
-    console.log("Inside :", a);  
-}
-    console.log("Outside :", a);
+// let a = 10 ;
+// {
+//     let a = 20;
+//     console.log("Inside :", a);  
+// }
+//     console.log("Outside :", a);
 
 /*Output
 Inside : 20
@@ -83,3 +83,6 @@ num = num +2 ;
  * string ,numbers , boolean null undefined, symbol , bigint
  * arrays , objects , functions 
  */
+
+let a = 9007199254740991n
+console.log(a+2n);

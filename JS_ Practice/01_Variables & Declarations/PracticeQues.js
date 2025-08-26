@@ -20,7 +20,7 @@ const object = {name: "abc"};
 object.age= 25 ;
 console.log(object);
 
-
+2
  /** 5. Try accessing a let variable before declaring it — what error do you see
   console.log(a);
 let a = 12 ;
@@ -33,3 +33,4 @@ Answwer it give it Reference error Cannot access 'a' before initialization
  arr.push(4);
  console.log(arr);
  
+ /** 🧠Chapter 2 Data Types + Type System **/

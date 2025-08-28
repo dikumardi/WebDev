@@ -9,7 +9,7 @@ console.log(20 % 4);
 console.log(2**3); //8 here ** means power
 
 //2 . Assignment Operator ( += , -= , /=, %= , **=)
-var x =10 ;
+// var x =10 ;
 
 // x += 5 ;      //  x= x + 5 ;
 // console.log(x);
@@ -74,8 +74,15 @@ console.log("i say not true then ans will false not true ka ulta false",!true);
 
 
 
-// unary operator (+ -  ++ -- !  ~ typeof)
-// + try to convert its operands into a number
+//5. unary operator (+ -  ++ -- !  ~ typeof)
+// + --string ko number me convert karne k liye  quick shortcut
+let price = "100"
+console.log("Unary operator",+price + 50); // agar ase likhte price + 50 to answer ata 10050 .likin  price k aage + laga diye iska matlab hai ki string ko number m change kiye hai with + shortcut method 
+
+// - number ko   negative banana k liye
+let balance = "200"
+console.log(-balance);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
 console.log(typeof 12);
 
 // ++ increment
@@ -93,6 +100,21 @@ console.log(b);
 console.log(b);
 
 
-//Bitwise
-// Ternary
-//Type
+// Ternary (?:)
+// (condition ? valueIfTrue : valueIfFalse)
+//  Shorthand for if...else
+console.log(12>21 ? "true hai ye":"False hai ye ");
+
+let score = 80 ;
+let grade = score > 50 ? "true" : "false" ;
+console.log(grade);
+
+
+//Typeof
+console.log(typeof 123 );          // number
+console.log(typeof "hi");          //  string    
+console.log(typeof null);          //  object
+console.log(typeof []);            // object
+console.log(typeof {});            // object
+console.log(typeof function(){});  //       function   
+    

@@ -154,10 +154,10 @@ console.log("This is done by function declaration");
  //Q.1 what is the difference between function declaration and expression in terms of hoisting?
  //Answer is above
 
- greet();
- function greet() {
-    console.log("Hello!");
- }
+//  greet();
+//  function greet() {
+//     console.log("Hello!");
+//  }
  // output: hello!
 
  /**convert this into an arrow function
@@ -196,6 +196,16 @@ sayHi();
 // means it is a array
 
 /**Use rest parameter to accept any number of scores and return the total **/
+function getScore(...scores) {
+    let total = 0;
+    scores.forEach(function (val) {
+      total = total + val ; 
+    });
+    return total ;
+}
+console.log(getScore(10,12,14,18));
+
+
 
 
 /**Fixed this using early return 
@@ -217,7 +227,7 @@ function f() {
     return;
 }
 console.log(f());
-//undefined
+//OUTPUT: undefined
 
 //What does it mean when we say "Functions are first-class citizens"
 //It means that function can be treated as value instead of giving a variable its value you can give function
@@ -261,13 +271,110 @@ x(function () {
         //     total += num;
         // } impure function
 
-        // conver impure into pure function
-           const total = 0;
+        //**  conver impure into pure function*/
+        let total = 0;
         function addTotal(num) {
-            total += num;
+            let newTotal = total
+            newTotal += num;
         }  
         addTotal(2)
 
+   /** What is Closure ? When it is created
+    * Answer: A Closure is which return a function and can acces the inner function outer function variable .It is created when a function return a function and can acces the outer function variable in the inner function **/
+
+   function outer() {
+    let count = 0 ;
+    return function () {
+        count++;
+        console.log(count);  
+    };
+   }
+   const counter = outer();
+   counter(); //1
+   counter(); // 2
+
+   /**Conver this normal function into IIFE 
+   function init() {
+    console.log("Initialized");
+    } 
+   **/
+(function init() {
+    console.log("Initialized");
+})();
 
 
+/**What will be the output here and why? **/
+greet();
+
+var greet = function () {
+    console.log("Hii...");
     
+}
+
+// greet is not a function so type error because when you put a function inside a variable it behaves as a value so when you try to call before initialize it will not work
+    
+/**Write a BMI Calculator **/
+function bmi(weight, height) {
+  let result =  weight /(height * height) ;
+  if (result < 18.5) {
+    console.log("underweight");
+  }if (result >=18.5 && result <= 24.9) {
+    console.log("Normal Weight");
+    
+  } else if (result >= 25 && result <=29.9) {
+    console.log("Overweight");
+  }   else{
+    console.log("Obese");
+    
+  }  
+  return result ;
+
+}
+
+console.log(bmi(52,1.5).toFixed(2));
+ 
+
+/**Create a Resuable discount calculator(Hof) **/
+
+function discountCalculator(discount) {
+    return function (price) {
+        return price - price * (discount / 100) ;
+    }; 
+}
+let ten = discountCalculator(10);
+let twenty = discountCalculator(20);
+console.log(ten(1200));
+
+
+/** Closures**/
+function counter() {
+    let count = 0 ;
+    return function () {
+        count++;
+        return count;
+    };
+}
+
+let c = counter();
+console.log(c());
+console.log(c());
+console.log(c());
+
+let d = counter();
+console.log(d());
+console.log(d());
+console.log(d());
+
+/**Create a pure function to transform a vlaue  **/
+function pure(val) {
+    return val * val ;
+}
+console.log(pure(5));
+
+
+//Use IFFE to islotate variable
+(function () {
+    const password = "your password"
+    console.log(password);
+    
+}())

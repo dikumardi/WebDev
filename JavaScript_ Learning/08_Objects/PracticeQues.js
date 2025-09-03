@@ -1,5 +1,6 @@
 // // Create an object for a student with name, age , and is Enrolled
 
+
 // let student ={
 //     name: "myName",
 //     age: 21,
@@ -8,11 +9,11 @@
 // console.log(student);
 
 //Can an object key be a number or boolean ?
-let obj = {
-    true : "yes",
-    24 : "answer"
-};
-console.log(obj[24]);
+// let obj = {
+//     true : "yes",
+//     24 : "answer"
+// };
+// console.log(obj[24]);
 //yes  it can be boolean as well as boolean
 
 //Acess the value of "first-name" from this object
@@ -132,7 +133,87 @@ for(let key in course){
         [key]:"admin"
       }
       console.log(object);
+
+
+      /** 1. Create an object for a book (title, author, price) **/
       
-      
-      
-       
+    const book = {
+        title:"myBook",
+        author:"xyz",
+        price: 200
+    };
+
+    /**2. Access properties using both dot and bracket **/
+    console.log(book.author);
+    console.log(book["title"]);
+    
+/** 3. Write a nested object (user with address and location) **/
+
+var obj = {
+    name:"YourName",
+    age:42,
+    address:{
+      city:"myCity",
+      country:"India"
+        }, 
+};
+
+/**4. Destructure name and age from a student object **/
+const student ={
+     name:"YourName",
+    age:42,
+}
+let {name,age} = student;
+console.log(name);
+console.log(age);
+
+/**  5. Loop through keys and values of an object **/
+
+let  emp= {
+    name: "yourName",
+    age: 25,
+    email: "test@gmail.com"
+};
+for(let key in obj){
+    console.log(key , emp[key]);
+}
+
+/** 6. Convert object to array using 
+Object.entries()**/
+console.log(Object.entries(student));
+
+/**7. Copy an object using spread operator **/
+let newStudent = {...student}
+console.log(newStudent);
+
+/** 8. Create a deep copy of an object with nested structure **/
+
+var obj = {
+    name:"YourName",
+    age:42,
+    addres:{
+      city:"myCity",
+      country:"India"
+        }, 
+};
+
+console.log(JSON.parse(JSON.stringify(obj)));
+
+/**9.Use optional chaining to safely access deep values
+  **/
+
+console.log(obj?.address?.city);
+
+
+/**  Use a variable as a key using computed properties
+  **/
+
+ let role = "admin";
+
+     let employee = {
+    name: "empName",
+    age: 25,
+    [role]: "empName"
+};
+console.log(employee);
+

@@ -21,6 +21,8 @@
 // }
 
 
+
+
 // 7. Use continue to skip a specific number
 // for (let i = 1; i <= 20; i++){
 //   if ( i === 7) {
@@ -30,4 +32,4 @@
 
 // }
 
-    
+   

@@ -90,7 +90,7 @@
               //       h1.classList.remove("styling")
 
                         //toggle
-                     h1.classList.toggle("styling")
+                    // h1.classList.toggle("styling")
 
 
                      // What is DOM ? How does it represent the HTML structure?
@@ -108,11 +108,50 @@
 </div>
  **/
 
-// div is a element node and span  children of div node element
+// div is a element node and span is children of div node element
 
 //whta is difference between  getElementById and querySelector
-// basicallly getElementById can be selet by is id .querySelector is multi purpose it can selct by tag id class  or attribute if 
+// basicallly getElementById can be select by is id .querySelector is multi purpose it can selct by tag id class  or attribute if  you use id then by # symbol you should use same for the class
+
+//What does getElementsByClassName return?  It is an array ?
+
+// let color = document.getElementsByClassName("color")
+// console.dir(color);
+
+// getElementsByClassName return HTMLCollection. It is very similar to array but not an array.
+
+//Use querySelectorAll to select all buttons with class ".buy-now".
+let buynow = document.querySelectorAll(".buy-now")
+console.log(buynow);
+
+//Select the heading of a page by ID and change its text to "something else".
+let changeText = document.getElementById("changeText")
+changeText.textContent = "Changed by the help of js"
 
 
-    
 
+//select all <li> elements and print their text in a loop
+let list = document.querySelectorAll('li')
+
+/**list.forEach(function (val) {
+   console.log(val.textContent);   
+})
+   **/
+  for (let i = 0; i < list.length; i++) {
+   console.log(list[i].textContent);
+   
+  }
+
+  //what is the difference between innerText, textContent and innerHtml?
+  // innerText, textContent
+
+  // when  should you use textContent instead of innerText?
+  // innerText is slower and textContent is faster so we use textContent and basically textContent  will show or take all the element even the content is hidden whereas innerText only take which is visible
+
+  /**  Select a paragraph and replace its content with: 
+      <b>Updated</b> by JavaScript        
+   *  **/
+  let para =document.querySelector("p");
+  para.innerHTML ="<b>Updated</b> by JavaScript";
+  
+//How do  you get the src of an image using JavaScript?

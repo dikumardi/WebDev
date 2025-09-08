@@ -155,3 +155,78 @@ let list = document.querySelectorAll('li')
   para.innerHTML ="<b>Updated</b> by JavaScript";
   
 //How do  you get the src of an image using JavaScript?
+let image = document.querySelector(".image");
+//1st way
+console.log(image.src);
+//2nd way
+console.log(image.getAttribute("src"));
+
+//what does setAttribute() do?
+document.querySelector("img").setAttribute( "src","https://set-your-new-url")
+
+// Slect a link and update its href to point to something your choice of your website
+
+let a = document.querySelector("a");
+a.href ="your-choice-of-URL"
+
+// Add a title attribute to a div dynamically
+let div = document.querySelector("div");
+// div.title =" yo ! what up div"
+//or
+div.setAttribute("title","hehe yo  info of div")
+
+// remove  the disable attribute from a button.
+let btn = document.querySelector("button");
+btn.removeAttribute("disabled")
+
+// What does createElement() do? What's returned ?
+let heading1 =document.createElement("h1");
+console.log(heading1);
+
+//what is difference between appendChild() and prepend()
+//appendChild() add the element at the last and prepend() add the element at the top/ first.
+
+//can you remove an element using removeChild()?
+// document.querySelector("div").removeChild(elementnode)
+
+//Create a new list item <li>New Task</li> and add it to the end of  a <ul>
+// let ul = document.querySelector("ul")
+// let li = document.createElement("li");
+
+// li.textContent = "New Task";
+
+// ul.appendChild(li);
+
+
+//Create a new image element with a placeholdr source and add it at the top of a div.
+
+// let newImage = document.createElement("img");
+// image.setAttribute("src","SS")
+// newImage.prependChild(); 
+
+//Select the fist item in a list and delete it from the DOM.
+// let ul = document.querySelector("ul");
+// let li= document.querySelector("li");
+// ul.removeChild(li)
+
+//How do you change background of an element
+// let ul = document.querySelector("ul");
+// ul.style.backgroundColor ="red"
+
+// what  is the difference between .classListadd() and.classList.toggle()?
+// .classListadd() basically it will add the .classListadd() if the present it doesn't change but in case of .classList.toggle() if the classList is added it remove and if it is not there then it will add 
+
+//Add a  highlight class to every even item in a list
+let li= document.querySelectorAll("ul li:nth-child(2n)")
+console.log(li);
+
+li.forEach(function (elem) {
+   elem.classList.add("highlight")
+})
+
+//Set the font size of all <p> element to 18px using. style
+let p = document.querySelectorAll("p");
+p.forEach(function (elem) {
+   elem.style.fontSize = "20px"
+})
+// p.style.fontSize = "18px";

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+                        /* height: 70rem; */
+
+        }
+        h1{
+            user-select: none;
+            /* font-size: 10rem; */
+            color: #444;
+        }
+        #input{
+            display: none;
+        }
+        #input-btn{
+         padding: 1px 20px;
+            background-color: rgb(15, 167, 83);
+            color: white;
+            border-radius: 35px;
+            /* font-weight: 700; */
+            min-width: 20px;
+            /* height: 70px; */
+        }
+         #input-btn:hover{
+            background-color: rgb(14, 85, 14);
+         }
+         .main{
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            /* border: 5px solid #444; */
+            /* width: 270px; */
+            padding: 2rem;
+            margin-top: 50px;
+         }
+         .card{
+           max-width:  21rem;
+            margin-top: 40px;
+            display: inline-block;
+            padding: 30px;
+            border: 1px solid #555;
+            border-radius: 10px;
+         }
+         .profile{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+             overflow: hidden;
+
+         }
+         .profile img {
+            margin-top: 1px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+         }
+          .profile , h1{
+            margin-top: 5px;
+          }
+          .profile , h5{
+            margin-top: -17px;
+          }
+         .profile , p{
+            margin-top: -21px;
+         }
+    </style>
+</head>
+<body>
+    <!-- input -->
+ <!-- <input type="text" placeholder="Name">     -->
+
+  <!-- change -->
+  <h2>Your Device</h2>
+  <select>
+<option selected disabled>Select your devices</option>
+<option value="samsung">Samsung</option>
+<option value="oppo">OPPO</option>
+<option value="realme">Realme</option>
+<option value="apple">iPhone</option>
+  </select>
+
+  <!-- keydown,keyup -->
+    <h1>a</h1>
+
+    <!-- custom input file  -->
+     <!-- <input type="file" id="input"> -->
+
+    <div id="input-btn">
+      <h3>Upload file</h3>
+    </div>
+
+     <!-- Make a form with user input and display that data into a form of a card :Learn new thing preventDefault -->
+      <div class="main">
+        <h4 style="align-items: center;">Welcome user</h4>
+        <form  action="">
+       <input type="text" placeholder="Profile pic"> <br> <br>
+       <input type="text" placeholder="User Name"> <br> <br>
+       <input type="text" placeholder="User Occupation"> <br> <br>
+       <input type="text" placeholder="Info"> <br> <br>
+       <input type="submit" placeholder="Submit">
+      </form>
+        
+      <!-- <div class="card">
+              <div class="profile">
+                <img src="DIKU.jpg" alt=""></div>
+                <h1>Diku Mardi</h1>
+                <h5>Creative Coder</h5>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur repudiandae sint explicabo corporis fugit debitis, nostrum expedita corrupti cumque eius nesciunt, quisquam eum necessitatibus in. In fuga debitis repellat vitae!</p>
+      </div> -->
+
+      </div>
+                 
+
+
+
+
+
+
+
+
+     <!-- JavaScript code is below -->
+
+    <script>
+        // input in addEventListener
+//   let inp = document.querySelector("input")
+//   inp.addEventListener("input", function (evt) {
+//     if (evt.data !== null) {
+//      console.log(evt.data);
+//     }
+//   })
+     // change
+
+     let sel = document.querySelector("select");
+     let h2 = document.querySelector("h2");
+
+     sel.addEventListener("change", function (evet) {
+        console.log(evet.target.value);
+      h2.textContent = `${evet.target.value} device selected`
+     })
+
+     
+     //   keydown,keyup 
+    //   let h1 =  window.document.querySelector("h1")
+
+    //   window.addEventListener("keydown",function (ev) {
+    //  //   console.log(ev.key);
+    //     if (ev.key === " ") {
+    //     //  console.log("Spc");
+    //      h1.textContent = "SPC" ;
+                 
+    //     }else{
+    //         h1.textContent = ev. key ;
+    //     }
+        
+    //   })
+
+      // custom input
+
+    //   let customInput = document.getElementById("input-btn")
+    //   let Input = document.getElementById("input")
+    //   let h3 = document.querySelector("h3");
+
+    // customInput.addEventListener("click", function () {
+    //     Input.click();  
+    // });
+
+    // Input.addEventListener("change" , function (dets) {
+    //     // console.log(dets.target.files[0].name);
+    //   const fileName =  dets.target.files[0]; 
+    //   if (fileName) {
+    //     h3.textContent = fileName.name;
+    //   }
+        
+    // });
+
+
+
+    // // user input
+
+let form = document.querySelector("form");
+let inputs = document.querySelectorAll("input");
+
+form.addEventListener("submit",function (a) {
+    a.preventDefault();
+    //  console.log(inputs[0].value,inputs[1].value,inputs[2].value,inputs[3].value);
+        // console.log(card);
+    
+
+
+
+    let main = document.querySelector(".main")
+   let card = document.createElement("div");
+    card.classList.add("card");
+
+    let Profile = document.createElement("div")
+     Profile.classList.add("profile");
+
+     let img = document.createElement("img");
+     img.setAttribute("src", inputs[0].value);
+
+     let h1 = document.createElement("h1")
+          h1.textContent = inputs[1].value ;
+
+     let h5 = document.createElement("h5")
+          h5.textContent = inputs[2].value ;
+
+     let p = document.createElement("p")
+          p.textContent = inputs[3].value;
+
+    //   h1.classList.add("h1")
+    //  h5.classList.add("h5")
+    //  p.classList.add("p")
+
+     Profile.appendChild(img)
+     card.appendChild(Profile)
+     card.appendChild(h1);
+     card.appendChild(h5);
+     card.appendChild(p);
+
+      main.appendChild(card)
+     // console.log(card);
+
+});
+
+
+
+    </script>
+</body>
+</html>

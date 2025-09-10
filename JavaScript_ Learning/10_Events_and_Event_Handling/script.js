@@ -35,7 +35,8 @@ inp.addEventListener("input", function (a) {
 let h3 = document.querySelector("h3");
 let select = document.querySelector("select");
 select.addEventListener("change", function (a) {
-     h3.textContent = a.target.value +` Device selected`
+    //  h3.textContent = a.target.value +` Device selected`
+   h3.textContent =`${a.target.value} device selected `; 
    // console.log(a);
     
     

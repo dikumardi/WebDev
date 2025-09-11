@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Projects</title>
+
+    <style>
+        .lt{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Live character counter -->
+     <h1>Live character counter</h1>
+     <textarea name="" id="" rows="10" cols="40"  placeholder="Write Anythings"></textarea>
+     <h2>Total Character : <span>...</span></h2>
+     <!-- Delegated event handler on todo list -->
+      <hr>
+      <h1>Delegated event handler on todo list</h1>
+      <ul >
+        <li>Lorem  dolor sit amet . </li>
+        <li>consectetur adipisicing elit</li>
+        <li>Earum sequi laboriosam distinctio</li>
+        <li> nulla eligendi,</li>
+        <li>totam quod iusto magni rem facilis aperiam</li>
+        <li>sint rerum fuga corrupti voluptas</li>
+        <li> quisquam ex enim illo?</li>
+      </ul>
+
+     <script>
+            /* Live character counter */
+            let ta = document.querySelector("textarea");
+            let span = document.querySelector("span");
+            ta.addEventListener("input", function () {
+        //    span.textContent = 20 - ta.value.length
+        let left = 20 - ta.value.length;
+        span.textContent = left;
+        if (left < 0) {
+            span.style.color = "red";
+        }else{
+       span.style.color = "black";
+
+        }
+            });
+
+                /* Delegated event handler on todo list  */
+                let ul = document.querySelector("ul");
+                
+                ul.addEventListener("click", function (eve) {
+                   //  eve.target.style.textDecoration = "line-through"
+                     eve.target.classList.toggle("lt");
+                })
+
+
+
+
+     </script>
+
+</body>
+</html>

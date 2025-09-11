@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Keydown vs Keyup Demo</title>
+</head>
+<style>
+  html,body{
+    width: 100%;
+    height: 100%;
+
+  }
+  /* body{
+    position: relative;
+    overflow: hidden;
+  }
+  .container-box{
+    width: 400px;
+    height: 400px;
+    background-color: crimson;
+    position: absolute;
+  }
+  .lt{
+       text-decoration: line-through;
+  } */
+    .lt{
+       text-decoration: line-through;
+  }
+  .a {
+    width: 80%;
+    height: 80%;
+    background-color: crimson;
+  }
+
+  .b {
+    width: 80%;
+    height: 80%;
+    background-color: coral;
+  }
+
+  .c {
+    width: 80%;
+    height: 80%;
+    background-color: cornflowerblue;
+  }
+  button{
+    padding: 1rem;
+    border-radius: 2rem;
+    border: none;
+  }
+</style>
+
+<body>
+  <!-- <h2>Press any key on your keyboard 👇</h2>
+  <p id="status">Waiting for input...</p> -->
+
+
+  <!-- <div class="container-box">
+
+   </div> -->
+
+  <ul>
+    <li>lorem</li>
+    <li>Home</li>
+    <li>meow</li>
+    <li>kitty</li>
+    <li>billy</li>
+    <li>pusssh</li>
+    <li>khehe</li>
+  </ul>
+
+  <div class="a"> <h1>A</h1>
+    <div class="b"> <h1>B</h1>
+      <div class="c"> <h1>C</h1>
+        <button>Click Me</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT BEGIN HERE -->
+
+  <script>
+      //Event Bubbling
+
+    let a = document.querySelector(".a");
+    let b = document.querySelector(".b");
+    let c = document.querySelector(".c");
+    let btn = document.querySelector("button");
+
+    btn.addEventListener("click",function () {
+      console.log("button clicked");
+      
+    },true);
+
+    c.addEventListener("click",function () {
+      console.log("C clicked");
+      
+    },true);
+
+    b.addEventListener("click",function () {
+      console.log("B clicked");
+      
+    });
+
+    a.addEventListener("click",function () {
+      console.log("a clicked");
+      
+    }, true);
+
+
+
+    let ul = document.querySelector("ul");
+    ul.addEventListener("click", function (evet) {
+      // evet.target.style.textDecoration = "line-through";
+      evet.target.classList.toggle("lt");
+
+    });
+
+
+
+    // mouseover,mouseout
+    // let box = document.querySelector(".container-box");
+    // box.addEventListener("mouseover", function () {
+    //  box.style.backgroundColor = "yellow";    
+    // });
+
+    // box.addEventListener("mouseout", function () {
+    //  box.style.backgroundColor = "red";    
+
+    // });
+    //mouse
+    // let box = document.querySelector(".container-box");
+
+    // window.addEventListener("mousemove", function (evet) {
+    //   //  console.log(evet.clientX,evet.clientY);
+    //   box.style.top = evet.clientY + "px";
+    //   box.style.left = evet.clientX + "px";
+
+    // })
+
+    // const status = document.getElementById("status");
+
+    // // Key down event
+    // document.addEventListener("keydown", (event) => {
+    //   status.textContent = `Key DOWN: "${event.key}" pressed`;
+    //   status.style.color = "blue";
+    // });
+
+    // // Key up event
+    // document.addEventListener("keyup", (event) => {
+    //   status.textContent = `Key UP: "${event.key}" released`;
+    //   status.style.color = "green";
+    // });
+
+  </script>
+</body>
+
+</html>

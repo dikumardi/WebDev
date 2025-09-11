@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
    
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+               body{
+                position: relative;
+                overflow: hidden;
+               }
+        .box{
+             position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+           
+            /* transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s; */
+        }
+        .main{
+background-color: cadetblue;
+padding: 20px;
+        }
+        .nav{
+            background-color: crimson;
+        }
+        .nav , li {
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+        button{
+            padding: 1rem;
+            border: none;
+            border-radius: 2rem;
+            background-color: #cec ;
+        }
+    </style>
 </head>
 <body>
     <h2>Topic: Events and Event Handling</h2>
@@ -15,7 +51,7 @@
     <ul>Event delegation</ul>
 
         <!--Start from here  -->
-       <h1>Hello World</h1> 
+       <!-- <h1>Hello World</h1> 
        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, officiis? Esse dignissimos, nulla veniam alias voluptas inventore deserunt corrupti facilis aperiam numquam. Neque veritatis deserunt earum aliquid. Molestiae, culpa aliquid.</p>
 
        <input type="text" placeholder="Name">
@@ -28,8 +64,24 @@
            <option value="mi">Xiomi</option>
            <option value="apple">Apple iphone</option>
            <option value="realme">Realme</option>
-samsung       </select>
+       </select> -->
 
+          <!-- <div class="main"> 
+
+        <div class="box"></div>
+
+        </div>               -->
+
+
+         <div class="main">
+            <div class="nav">
+                <li>Home</li>
+                <li>Projects</li>
+                <li>About ME</li>
+                <button>Github Repo</button>
+            </div>
+         </div>
+  
     <script src="script.js"></script>
 </body>
 </html>

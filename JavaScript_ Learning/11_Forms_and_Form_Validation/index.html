@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms and Forms Validation </title>
+</head>
+<!--  br
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+ 
+  height: 100vh;
+  background: #f2f2f2;
+}
+
+.form-container {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 350px;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.result-message , p{
+    margin-top: .7rem;
+  color: red;
+  text-align: center;
+  display: none;
+}
+
+small.error {
+  color: red;
+  font-size: 12px;
+  display: none;
+  margin-top: 3px;
+}
+
+</style> -->
+<style>
+  .showerror{
+    display: none;
+  }
+</style>
+<body>
+       <h2>Learn</h2>
+    <ul>
+        <li>Reading values from input, textarea,select</li>
+        <li>PreventDefault submission</li>
+        <li>Inline and JS-based Validation   </li>
+        <li>Showing error messages conditionally</li>
+        <li>Pattern attribute vs custom regex</li>
+    </ul>
+
+    <!-- input ,textarea ,select -->
+      <form>
+        <input id="name" type="text" placeholder="Name"> <br> <br> 
+        <div class="sss"><br>
+        <small id="error"></small>
+      
+    </div>
+         <!-- <input type="email" placeholder="email"> <br> <br>
+         <textarea id="" placeholder="write something..."></textarea> <br> <br>
+         <select id="">
+          <option selected disabled >Gender</option> 
+          <option value="">Male</option>
+          <option value="">FeMale</option>
+          <option value="">Others</option> 
+         </select> <br> <br> -->
+            <input type="submit">
+
+      </form>
+
+    
+   
+    <!--  -->
+    <!-- <div class="form-container">
+    <h2>Welcome , Register</h2>
+    <form id="myForm" autocomplete="off">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter username">
+        <small class="error">Lorem, ipsum dolor.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter email">
+        <small class="error"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <small class="error"></small>
+      </div>
+
+
+      <button type="submit">Submit</button>
+        <span class="result-message">
+        <p>Registered Successfully Done</p>
+       </span>
+       </form> -->
+
+
+      <script>
+        let nm = document.querySelector("#name");
+        let fm = document.querySelector("form")
+        fm.addEventListener("submit" ,function (par) {
+        par.preventDefault();
+      
+        // console.log(nm.value.length >= 2);
+        if(nm.value.length <=2){
+          
+          let show = document.querySelector(".sss");
+        
+          
+        }
+        
+        
+       });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //      let forms = document.querySelector("form");
+  //      let inp = document.querySelector("input");
+       
+  //      inp.addEventListener("input", function (event) {
+        
+     
+        
+        
+  //      })
+  //  const nameRegex = /^[A-Za-z] [A-Za-z\s'-] {1,49}$/ ;
+        
+  //    console.log(nameRegex .test("diku mardi"));
+     
+  //     </script>
+
+
+</body>
+</html>

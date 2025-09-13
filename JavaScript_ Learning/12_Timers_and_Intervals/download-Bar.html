@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Download Bar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .card{
+      width:min(760px,92vw);
+      padding:20px;
+      border-radius:12px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .progress-container {
+      width: 80%;
+      height: 30px;
+      background-color: #eee; /* light grey track */
+      border: 1px solid #999;
+      border-radius: 5px;
+      margin: 20px auto;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%; /* will grow with JS */
+      background-color:#2563eb; ; /* simple solid color */
+      text-align: right;
+      color: white;
+      line-height: 30px;
+      font-size: 14px;
+    }
+
+    .info {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .percent{
+       /* padding: 50px; */
+    }
+    .meta{
+        display: flex;
+        justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+ <div class="card">
+     <h2>Download Progress</h2>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="bar">0%</div>
+        
+    </div>
+ <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p></div>
+    
+    
+  <div class="meta">
+      <div id="status">Starting…</div>
+      <div id="bytes">0 / 50 MB</div>
+    </div>
+
+
+
+   
+    
+  </div>
+ <script>
+    let progressbar = document.querySelector(".progress-bar")
+    let status = document.querySelector("#status")
+    let bytes = document.querySelector("#bytes");
+
+        let count = 0
+        let seconds = 1;
+
+ let ans =   setInterval(function () {
+        if (count <=99) {
+            count++;
+            progressbar.style.width = `${count}% `; 
+            progressbar.textContent = `${count}% `; 
+            status.textContent = `Downloading... `; 
+            bytes.textContent = ` ${(count/100)*50} /50MB`; 
+        }else { 
+            status.textContent = `Downloaded... `; 
+            clearInterval(ans);
+
+
+        }
+    }, seconds * 100)
+ </script>   
+ 
+</body>
+</html>

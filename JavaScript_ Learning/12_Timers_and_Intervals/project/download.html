@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Download Progress Bar (HTML + CSS)</title>
+  <style>
+    :root{
+      --w: 0%; /* update this via JS */
+      --bar-height: 28px;
+      --bg: #0f172a;
+      --track: #e6eef8;
+      --accent1: #2563eb;
+      --accent2: #06b6d4;
+      --shadow: rgba(2,6,23,0.6);
+      --radius: 999px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg,#07103a 0%, #081024 100%);
+      color:#e6eef8;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      padding:24px;
+    }
+
+    .card{
+      width:min(760px,92vw);
+      background:linear-gradient(180deg, rgba(82, 4, 227, 0.03), rgba(255,255,255,0.02));
+      padding:20px;
+      border-radius:12px;
+      box-shadow: 0 10px 30px var(--shadow);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    h1{font-size:18px;margin:0 0 14px}
+    p{margin:0 0 18px;color:rgba(230,238,248,0.78)}
+
+    .progress-wrap{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .progress{
+      --progress: var(--w);
+      flex:1;
+      height:var(--bar-height);
+      background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border-radius:var(--radius);
+      padding:3px;
+      position:relative;
+      overflow:hidden;
+      box-shadow: inset 0 2px 6px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .progress-track{
+      position:absolute;inset:3px;border-radius:calc(var(--radius) - 3px);
+      background: linear-gradient(90deg,#f7fbff 0%, #eef7ff 100%);
+      opacity:0.06;
+      pointer-events:none;
+    }
+
+    .progress-bar-inner{
+      position:absolute;left:3px;top:3px;bottom:3px;
+      width:calc(var(--progress));
+      border-radius:calc(var(--radius) - 3px);
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      box-shadow: 0 6px 18px rgba(37,99,235,0.18), inset 0 -8px 18px rgba(255,255,255,0.04);
+      transition: width 250ms linear;
+      overflow:hidden;
+    }
+
+    .progress-bar-inner::before{
+      content:"";
+      position:absolute;inset:0;
+      background-image: linear-gradient(135deg, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.06) 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02) 100%);
+      background-size: 24px 24px;
+      animation: stripe-move 1.2s linear infinite;
+      opacity:0.5;
+      mix-blend-mode: overlay;
+      pointer-events:none;
+    }
+
+    @keyframes stripe-move{from{background-position:0 0}to{background-position:48px 0}}
+
+    .percent{
+      min-width:64px;text-align:right;font-weight:600;font-size:14px;color:#e6eef8;
+    }
+
+    .meta{display:flex;justify-content:space-between;margin-top:12px;font-size:13px;color:rgba(230,238,248,0.7)}
+
+    @media (prefers-reduced-motion: reduce){
+      .progress-bar-inner, .progress-bar-inner::before{animation:none;transition:none}
+    }
+
+    .progress-bar-inner[data-glow="true"]{
+      box-shadow: 0 10px 30px rgba(3,105,161,0.28), inset 0 -10px 30px rgba(255,255,255,0.03);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Download progress</h1>
+    <!-- <p>Copy this file and use your own JavaScript with <code>setInterval</code> to update the progress. The JS hook updates the CSS variable <code>--w</code> or the inline <code>style.width</code> of <code>.progress-bar-inner</code>, and also update the percentage text.</p> -->
+
+    <div class="progress-wrap">
+      <div class="progress" aria-label="Download progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-track" aria-hidden="true"></div>
+        <div class="progress-bar-inner" id="bar" style="width:0%" data-glow="false"></div>
+      </div>
+      <div class="percent" id="percent">0%</div>
+    </div>
+
+    <div class="meta">
+      <div id="status">Starting…</div>
+      <div id="bytes">0 / 50 MB</div>
+    </div>
+  </div>
+
+  <!--
+    JS hook (for you to add):
+    
+    - Increment a `percent` variable.
+    - Update #bar width and #percent text.
+    - Update #status to “Downloading…” and show current MB in #bytes.
+    - When percent hits 100, change status to “Completed”.
+  -->
+    <script>
+
+        let bar = document.querySelector("#bar");
+        let percent = document.querySelector("#percent");
+        let status = document.querySelector("#status");
+        let bytes = document.querySelector("#bytes");
+        
+        let count = 0 ;
+        let sec = 5 ;
+     let ans =   setInterval(function () {
+            if (count <=99) {
+                count++;
+                bar.style.width = `${count}%`;
+                percent.textContent = `${count}%`;
+                status.textContent = "Downloading…"
+                bytes.textContent  = `${(count / 100) * 50} /50MB`;
+            } else  {status.textContent = "Downloaded"
+                clearInterval(ans)
+            }
+        }, sec * 10)
+            
+    </script>
+</body>
+</html>

@@ -59,3 +59,55 @@ let a  = 45 ; // here if it is dynamic scope even if we are  calling aaa () insi
 bbb();
 
 /**Closures: function inside function and that function return the function can access the parent variable this whole scinerio is called closures  **/
+
+
+//counter
+function name() {
+   let a = 0 ;
+   return function () {
+    a++;
+    console.log(a);
+   }
+}
+
+let ans = name();
+ans();
+ans();
+ans();
+ans();
+
+let ans2 = name();
+ans2();
+ans2();
+ans2();
+ans2();
+ans2();
+ans2();
+ans2();
+
+// Encapsulation
+function limitClicker() {
+  let click = 0 ;
+  return function () {
+    if (click < 5) {
+         click++;
+        console.log( `clicked : ${click} times`);
+         
+    }
+    else{
+      console.error("Limit exceeded , Try after some time");
+      
+    }
+  };
+  
+}
+let clickAns =limitClicker();
+clickAns();
+clickAns();
+clickAns();
+clickAns();
+clickAns();
+clickAns();
+
+
+//

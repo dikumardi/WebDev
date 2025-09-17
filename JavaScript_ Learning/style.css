@@ -38,12 +38,15 @@ main{
 #sec-1 img{
     margin-top: 2rem;
     border-radius: 17px;
-    width: 850px;
+    width: 85rem;
+    object-fit: cover;
 }
 
 /*  */
 #sec-2{
+    margin-top: 2rem;
     display: flex;
+    position: relative;
 }
  .right  p{
     font-size: 1rem;
@@ -53,15 +56,70 @@ main{
 .right  h1{
     font-size: 4rem;
      font-weight: 400;
-     
     }
     
       .line {
-        width: 50rem;
-        height: .1rem;
-        background-color: black;
-        flex-direction: col;
-
+ 
+    height: 1px;
+    width: 100%;
+    background-color: #777;
+    display: flex;
+    flex-direction:row;
        
     }
+       .one{
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    .one h1 {
+        font-weight: 500;
+    }
+      
+    .two{
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    .two h1 {
+        font-weight: 500;
+    }
+       .three{
+        margin-top: 3rem;
+    }
+    .three h1 {
+        font-weight: 500;
+    }
+    .lining{
+       height: 1px;
+       /* width: 35rem; */
+       background-color: #777;
+    }
+    svg{
+        width: 5rem;
+    }
 
+.end-line{
+    height: 1px;
+    width: 100%;
+    background-color: #777;
+}
+.lineconvertinto-column {
+  width: 2px;              /* thin vertical line */
+  height: 50rem;           /* adjust line height */
+  background-color: #777; /* line color */
+  /* margin: 20px auto;       centers it between sections */
+  position: absolute;
+  left: 45%;                  /* center horizontally */
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+button{
+    margin-top: 30rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    background-color: black;
+    color: white;
+    width: 10rem;
+    height: 2.5rem;
+}

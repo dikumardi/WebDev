@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toaster Notification</title>
+    <style>
+        .toast {
+            display: flex;
+            position: fixed;
+            top:  5%;
+            left: 5%;
+            background-color: #b0afaf;
+            border-radius: 5px;
+            padding: 6px;
+            pointer-events: none;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Project on closures -->
+
+      
+<script>
+
+
+
+
+function createToaster(config) {
+    return function (notification) {
+        let div = document.createElement("div");
+        div.className = `toast  `;
+        div.textContent = notification ;
+        document.body.appendChild(div);
+
+        setTimeout(function () {
+            document.body.removeChild(div)
+        },  1000)
+        
+    };
+}
+
+let ans = createToaster()
+ans("This i a toaster notification ")
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

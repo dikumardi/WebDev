@@ -1,4 +1,4 @@
-/** let inp =document.querySelector("input"); 
+  /** let inp =document.querySelector("input"); 
 
 let forms = document.querySelector("form");
 

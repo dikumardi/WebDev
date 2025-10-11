@@ -7,6 +7,5 @@ import UseStateHooks from './useStateHooks.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <UseStateHooks/>
   </StrictMode>,
 )

@@ -1,28 +1,21 @@
+import { Fragment } from "react";
 
-const Read = (proprs) => {
+const Read = (props) => {
+    const todos =props.todos;
+    const settodos = todos.settodos
 
-    const users = proprs.users;
-    const setusers = proprs.setusers;
- console.log(proprs);
- 
     
-  const updatedProfiles = users.map((users, index) => {
-    console.log(users, index);
-
-    return (
-      <li key={index}>
-        <li>Name : {users.name} ,</li>
-        <li> Age : {users.age}</li>
-      </li>
-    );
-  });
+ const RenderView =todos.map(todo=>{
+  return <li style={{color: todo.isCompleted ? "green" : "red"}} key={todo.id}>{todo.title}</li>
+ });
 
   return (
-    
-    <div>
-    <h1>Rendering Json</h1>
-      <ol> {updatedProfiles}</ol>
-    </div>
+    <Fragment>
+       <hr/>
+    <h1 style={{color:"tomato"}}>Task List</h1>
+    <ol>{RenderView}</ol>
+
+    </Fragment>
   )
 }
 

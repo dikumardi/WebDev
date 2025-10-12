@@ -1,46 +1,46 @@
 import { useState } from "react";
+import { nanoid } from "nanoid";
 
 const Create = (props) => {
-  console.log(props);
+    const todos =props.todos;
+    const settodos = props.settodos
 
-  const [fullname, setfullname] = useState("");
-  const [age, setage] = useState();
+       const [title, settitle] = useState("");
+     const SubmitHandler = (e)=>{
+      e.preventDefault();
+         
+      const newTodo ={
+        id:nanoid(),
+        title,
+        isCompleted:true,
+      };
 
-  const submitHandler = (e) => {
-    console.log("form submit");
-    const newuser = { fullname, age };
-    e.preventDefault();
-    console.log(newuser);
-    //set the user in the setusers
-  };
+       let copyTodo =[...todos];
+       copyTodo.push(newTodo);
+       settodos(copyTodo);   
+       settitle("") 
+     };
+     const buttoncss = {
+        margin:"20px 0",
+      color : "black",
+      padding: "5px 10px",
+      backgroundColor:"royalblue",
+      border:"1px solid red",
+      borderRadius:"10px"
+     };
 
   return (
-    <div>
+    <>
+     <h1>Create Task</h1>
+    <form onSubmit={SubmitHandler}>
+    <input
+    onChange={(e)=>settitle(e.target.value)}
+    value={title}
+     type='text' placeholder='Enter Title'/> <br/>
+     <button style={buttoncss}>Add Task</button>
+    </form>
+    </>
+  )
+}
 
-      <h1>Register User</h1>
-
-      <form onSubmit={submitHandler}>
-        <input
-          onChange={(e) => setfullname(e.target.value)}
-          value={fullname}
-          type="text"
-          placeholder="Enter Name"
-        />
-
-
-        <input
-          onChange={(e) => setage(e.target.value)}
-          value={age}
-          type="number"
-          placeholder="Enter  Age"
-        />
-
-        <button>Submit</button>
-
-      </form>
-
-    </div>
-  );
-};
-
-export default Create;
+export default Create

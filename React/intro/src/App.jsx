@@ -1,24 +1,25 @@
-import { useState } from "react";
+import { nanoid } from "nanoid";
+import { useState } from "react"
 import Create from "./components/Create";
 import Read from "./components/Read";
-
 const App = () => {
-  const [users,setusers] = useState([ 
-    { name: "John", age: 25 },
-    { name: "Alice", age: 30 },
-    { name: "Bob", age: 22 },
-  ]);
+
+    const [todos, settodos] = useState([
+     {id:1,title:"demo",isCompleted:true,}
+    ]);
+
+    
+
 
 
   return (
     <div>
-
-    <Create/>
-    <Read users={users} setusers={setusers}/>
     
-      
+    <Create todos={todos} settodos={settodos}/>
+    <Read todos={todos} settodos={settodos}/>
+    
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

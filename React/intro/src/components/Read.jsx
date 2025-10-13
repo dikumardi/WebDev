@@ -1,4 +1,5 @@
 import React from 'react'
+import { toast } from 'react-toastify';
 
 const Read = (props) => {
     const todos =props.todos;
@@ -6,6 +7,7 @@ const Read = (props) => {
 
     const deleteHandler = (id) =>{
     const filteredTodos =todos.filter((todo) => todo.id !=id)
+    toast.error("Deleted task")
     settodos(filteredTodos)
   };
  
@@ -13,8 +15,10 @@ const Read = (props) => {
     return(
       <li
        className="flex justify-between bg-gray-600 mb-5 p-2 rounded"
-       key={todo.id}>{todo.title} {" "}
+       key={todo.id}>{todo.title} 
+       
       <button   
+      
       className="border bg-red-700 px-7 py-2 rounded"
       onClick={()=>deleteHandler(todo.id)}>Delete</button>
       </li>

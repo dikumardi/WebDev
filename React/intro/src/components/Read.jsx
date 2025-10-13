@@ -1,35 +1,34 @@
-import { Fragment } from "react";
+import React from 'react'
 
 const Read = (props) => {
     const todos =props.todos;
-    const settodos = props.settodos
+  const settodos =props.settodos;
 
-  const deletHandler = (id) =>{
-   console.log(id);
-  const filtersTodos = todos.filter((todo)=>todo.id !=id)
-  settodos(filtersTodos);
+    const deleteHandler = (id) =>{
+    const filteredTodos =todos.filter((todo) => todo.id !=id)
+    settodos(filteredTodos)
+  };
  
-  }
-    
- const RenderView =todos.map(todo=>{
-  return (
-    <li 
-    style={{color: todo.isCompleted ? "green" : "red"}}
-     key={todo.id}>{todo.title} |{" "}
-      <span 
-      onClick={()=>deletHandler(todo.id)}
-      style={{color:"slateblue"}}>Delete</span>
+  const RenderList = todos.map(todo=>{
+    return(
+      <li
+       className="flex justify-between bg-gray-600 mb-5 p-2 rounded"
+       key={todo.id}>{todo.title} {" "}
+      <button   
+      className="border bg-red-700 px-7 py-2 rounded"
+      onClick={()=>deleteHandler(todo.id)}>Delete</button>
       </li>
-  )
+    );
   });
 
-  return (
-    <Fragment>
-       <hr/>
-    <h1 style={{color:"tomato"}}>Task List</h1>
-    <ol>{RenderView}</ol>
 
-    </Fragment>
+     
+  return (
+    <div className="w-[60%] bg-gray-700 text-white p-8 border rounded mb-10 ">
+        <h1 className='text-5xl mb-4'>Pending Task </h1>
+        <ol>{RenderList}</ol>
+
+    </div>
   )
 }
 

@@ -5,6 +5,7 @@ import About from '../components/About'
 import { Route, Routes } from 'react-router-dom'
 import ProductsDetails from '../components/ProductsDetails'
 import ProductMore from '../components/ProductMore'
+import ServiceDetails from '../components/ServiceDetails'
 
 const Mainroute = () => {
   return (
@@ -17,6 +18,7 @@ const Mainroute = () => {
      </Route>
      
      <Route path="/service" element={<Service/>}/>
+     <Route path="/service/det/:name" element={<ServiceDetails/>}/>
      <Route path="/about" element={<About/>}/>
      </Routes>
     

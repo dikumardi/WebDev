@@ -14,7 +14,7 @@ const Products = () => {
 
      <button
     onClick={()=>navigate("/product/more")}
-    className='bg-gray-700 px-7 py-2 rounded text-white mb-3'>View Service</button>
+    className='bg-gray-700 px-7 py-2 rounded text-white mb-3'>update</button>
     <hr className="w-[70%]"/>
     <Outlet/>
     </div>

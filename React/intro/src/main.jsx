@@ -1,19 +1,12 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import "./index.css"
-import { ToastContainer } from 'react-toastify'
-import Wrapper from './Wrapper.jsx'
-
+import { BrowserRouter } from 'react-router-dom'
 
 
 createRoot(document.getElementById('root')).render(
- <Wrapper>
+<BrowserRouter>
    <App />
-  <ToastContainer position='top-center'/> 
-  </Wrapper>
-)
-//  <StrictMode>
 
-  //  
-  // </StrictMode>,
+</BrowserRouter> 
+)

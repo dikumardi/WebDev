@@ -1,30 +1,20 @@
 import  { useContext } from 'react';
 import { recipecontext } from '../context/RecipeContext';
+import RecipeCard from './RecipeCard';
 
 const ShowCaseRecipe = () => {
   
-    const { data } = useContext(recipecontext);
+  const { data } = useContext(recipecontext);
 
-    const renderrecipes =data.map((recipe) => (
-        <div key={recipe.id}>
-            <h1>{recipe.title}</h1>
-        </div>
+    const renderrecipes = data.map((recipe) => (
+           <RecipeCard key={recipe.id} recipe={recipe}/>
     ));
 
+
     return(
-         <div className="max-w-2xl mx-auto mt-10 space-y-6">
-      {data.map((recipe) => (
-        <div
-          key={recipe.id}
-          className="border p-4 rounded shadow hover:shadow-lg transition"
-        >
-          <h2 className="text-xl font-bold mb-2">{recipe.title}</h2>
-          <p><strong>Ingredients:</strong> {recipe.ingredients}</p>
-          <p><strong>Steps:</strong> {recipe.steps}</p>
-          <p><strong>Cooking Time:</strong> {recipe.cookingTime} minutes</p>
-        </div>
-      ))}
-    </div>
+        <div className='flex flex-wrap px-17 mt-7'>
+    {data.length > 0 ? renderrecipes : "No recipes found"}</div>
+
     )
     
     

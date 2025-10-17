@@ -8,6 +8,7 @@ import ProductMore from '../components/ProductMore'
 import ServiceDetails from '../components/ServiceDetails'
 import Recipe from '../components/Recipe'
 import ShowCaseRecipe from '../components/ShowCaseRecipe'
+import SingleRecipe from '../components/SingleRecipe'
 
 const Mainroute = () => {
   return (
@@ -24,6 +25,8 @@ const Mainroute = () => {
      <Route path="/about" element={<About/>}/>
           <Route path="/recipe" element={<Recipe/>}/>
           <Route path="/showcaserecipe" element={<ShowCaseRecipe/>}/>
+               <Route path='/recipe/details/:id' element={<SingleRecipe />} />
+
 
      </Routes>
     

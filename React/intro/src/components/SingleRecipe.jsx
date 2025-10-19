@@ -2,78 +2,104 @@ import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const SingleRecipe = () => {
-  const navigate = useNavigate();
   const { data, setdata } = useContext(recipecontext);
+  const navigate = useNavigate();
+  const params = useParams();
+
+  const recip = data.find((rec) => params.id == rec.id);
+
   const {
     register,
-    reset,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      title: recip?.title || "",
+      chef: recip?.chef || "",
+      image: recip?.image || "",
+      inst: recip?.inst || "",
+      desc: recip?.desc || "",
+      ingredients: recip?.ingredients || "",
+      category: recip?.category || "breakfast",
+    },
+  });
 
-  const SubmitHandler = (recipe) => {};
+  const SubmitHandler = (recipe) => {
+    const index = data.findIndex((r) => r.id == params.id);
+    const copydata = [...data];
+    copydata[index] = { ...copydata[index], ...recipe };
+    setdata(copydata);
+    toast.success("Recipe updated");
+  };
 
-  const params = useParams();
-  const recip = data.find((recips) => params.id == recips.id);
-  console.log(recip);
+  const DeleteHandler = () => {
+    const filterdata = data.filter((r) => r.id != params.id);
+    setdata(filterdata);
+    toast.success("Recipe deleted");
+    navigate("/showcaserecipe");
+  };
 
-  return recip ? (
+  if (!recip) return "Loading...";
 
+  return (
     <div className="w-full flex px-70">
-      <div className="left  w-1/2 p-2">
-
-        <h1 className="text-center text-5xl text-red-700"> {recip.title}</h1>
-        <img className="W-[20vW]" src={recip.image} />
-
+      <div className="left w-1/2 p-2">
+        <h1 className="text-center text-5xl text-red-700">{recip.title}</h1>
+        {recip.image ? (
+          <img className="w-[20vw]" src={recip.image} alt={recip.title} />
+        ) : (
+          <img
+            className="w-[20vw]"
+            src="https://via.placeholder.com/400x200?text=No+Image"
+            alt="No image"
+          />
+        )}
+        <h1>{recip.chef}</h1>
+        <p className="bg-red-700">{recip.desc}</p>
       </div>
 
-
-
-      <div className="right pl-50 mt-10  p-2">
-
-        <form className="w-1/2 " onSubmit={handleSubmit(SubmitHandler)}>
+      <div className="right pl-50 mt-10 p-2">
+        <form className="w-1/2" onSubmit={handleSubmit(SubmitHandler)}>
           <input
             className="block border-b outline-0 p-2"
             {...register("image")}
             type="url"
-            value={recip.image}
-            placeholder="Enter Image Url"
+            placeholder="Enter Image URL"
           />
-          <small className="text-red-400">THis is how the error is shown</small>
+
           <input
             className="block border-b outline-0 p-2"
             {...register("title")}
-            value={recip.title}
             type="text"
             placeholder="Recipe Title"
           />
+
           <input
             className="block border-b outline-0 p-2"
             {...register("chef")}
             type="text"
-             value={recip.chef}
             placeholder="Chef Name"
           />
 
           <textarea
             className="block border-b outline-0 p-2"
             {...register("desc")}
-                        value={recip.desc}
-            placeholder="//start from here"
+            placeholder="// Start from here"
           ></textarea>
 
           <textarea
             className="block border-b outline-0 p-2"
             {...register("ingredients")}
-            placeholder="//write ingredients seperated by comma"
+            placeholder="// Write ingredients separated by commas"
           ></textarea>
 
           <textarea
             className="block border-b outline-0 p-2"
-            {...register("instructions")}
-            placeholder="//write instructions seperated by comma"
+            {...register("inst")}
+            placeholder="// Write instructions separated by commas"
           ></textarea>
 
           <select
@@ -81,23 +107,28 @@ const SingleRecipe = () => {
             {...register("category")}
           >
             <option value="breakfast">Breakfast</option>
-            <option value="Lunch">Lunch</option>
-            <option value="super">Super</option>
-            <option value="dinner">Dinner </option>
+            <option value="lunch">Lunch</option>
+            <option value="supper">Supper</option>
+            <option value="dinner">Dinner</option>
           </select>
 
-          <button className="text-white mt-5 block bg-blue-900 px-4 py-2 rounded">
+          <button
+            type="submit"
+            className="text-white mt-5 block bg-blue-900 px-4 py-2 rounded"
+          >
             Update Recipe
           </button>
 
-           <button className="text-white mt-5 block bg-red-900 px-4 py-2 rounded">
+          <button
+            type="button"
+            onClick={DeleteHandler}
+            className="text-white mt-5 block bg-red-900 px-4 py-2 rounded"
+          >
             Delete Recipe
           </button>
         </form>
       </div>
     </div>
-  ) : (
-    "Loading..."
   );
 };
 

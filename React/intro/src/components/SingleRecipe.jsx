@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import { useForm } from "react-hook-form";
@@ -43,6 +43,14 @@ const SingleRecipe = () => {
   };
 
   if (!recip) return "Loading...";
+ useEffect(()=>{
+  console.log("Single recipe mounted");
+
+  return()=>{
+    console.log("Single recipe  un-mounted");
+    
+   }
+ },[])
 
   return (
     <div className="w-full flex px-70">

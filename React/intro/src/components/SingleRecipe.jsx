@@ -27,34 +27,48 @@ const SingleRecipe = () => {
     },
   });
 
-  const SubmitHandler = (recipe) => {
+  const UpdatetHandler = (recipe) => {
     const index = data.findIndex((r) => r.id == params.id);
     const copydata = [...data];
     copydata[index] = { ...copydata[index], ...recipe };
     setdata(copydata);
+            localStorage.setItem("recipe",JSON.stringify(copydata));
     toast.success("Recipe updated");
   };
 
   const DeleteHandler = () => {
     const filterdata = data.filter((r) => r.id != params.id);
     setdata(filterdata);
+            localStorage.setItem("recipe",JSON.stringify(filterdata));
     toast.success("Recipe deleted");
     navigate("/showcaserecipe");
   };
 
   if (!recip) return "Loading...";
- useEffect(()=>{
-  console.log("Single recipe mounted");
 
-  return()=>{
-    console.log("Single recipe  un-mounted");
-    
-   }
- },[])
+
+ const favourite = JSON.parse(localStorage.getItem("fav")) || [];
+
+ const FavHandler = () => {
+  
+ }
+
+ 
+ const UnFavHandler = () =>{
+  const filterfav = favourite.filter((f) => f.id != recip?.id);
+  localStorage.setItem("fav", JSON.stringify(filterfav));
+
+ }
 
   return (
     <div className="w-full flex px-70">
-      <div className="left w-1/2 p-2">
+      <div className="relative left w-1/2 p-17">
+       
+         <i onClick={FavHandler}  className="absolute right-[5%] text-3xl text-red-400 ri-poker-hearts-line"></i>
+       
+        <i onClick={UnFavHandler}  className="absolute right-[5%] text-3xl text-red-400 ri-poker-hearts-fill"></i>
+       
+ }
         <h1 className="text-center text-5xl text-red-700">{recip.title}</h1>
         {recip.image ? (
           <img className="w-[20vw]" src={recip.image} alt={recip.title} />
@@ -70,7 +84,7 @@ const SingleRecipe = () => {
       </div>
 
       <div className="right pl-50 mt-10 p-2">
-        <form className="w-1/2" onSubmit={handleSubmit(SubmitHandler)}>
+        <form className="w-1/2" onSubmit={handleSubmit(UpdatetHandler)}>
           <input
             className="block border-b outline-0 p-2"
             {...register("image")}

@@ -9,6 +9,8 @@ import ServiceDetails from '../components/ServiceDetails'
 import Recipe from '../components/Recipe'
 import ShowCaseRecipe from '../components/ShowCaseRecipe'
 import SingleRecipe from '../components/SingleRecipe'
+import PageNotFound from '../components/PageNotFound'
+import Fav from '../components/Fav'
 
 const Mainroute = () => {
   return (
@@ -26,8 +28,9 @@ const Mainroute = () => {
           <Route path="/recipe" element={<Recipe/>}/>
           <Route path="/showcaserecipe" element={<ShowCaseRecipe/>}/>
                <Route path='/recipe/details/:id' element={<SingleRecipe />} />
+               <Route path='/fav' element={<Fav/>} />
 
-
+     <Route path='*' element={<PageNotFound/>}/>
      </Routes>
     
   )

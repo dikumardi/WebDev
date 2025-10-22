@@ -16,10 +16,7 @@ const Nav = () => {
      className={(e) => (e.isActive ? "text-red-500" : "")}
      to="/service">Service</NavLink>
 
-     <NavLink
-     className={(e) => (e.isActive ? "text-red-500" : "")}
-     to="/about">About</NavLink>
-
+    
      <NavLink
      className={(e) => (e.isActive ? "text-red-500" : "")}
      to="/recipe">Create Recipe</NavLink>
@@ -27,7 +24,18 @@ const Nav = () => {
       <NavLink
      className={(e) => (e.isActive ? "text-red-500" : "")}
      to="/showcaserecipe">Show Recipe</NavLink>
+
+     <NavLink
+     className={(e) => (e.isActive ? "text-red-500" : "")}
+     to="/fav">Favourites</NavLink>
+
+      <NavLink
+     className={(e) => (e.isActive ? "text-red-500" : "")}
+     to="/about">About</NavLink>
+
     </div>
+
+    
   )
 }
 

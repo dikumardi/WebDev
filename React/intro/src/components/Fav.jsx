@@ -1,9 +1,19 @@
-import React from 'react'
+import  { useContext } from 'react';
+import { recipecontext } from '../context/RecipeContext';
+import RecipeCard from './RecipeCard';
 
 const Fav = () => {
-  return (
-    <div>Fav</div>
-  )
-}
+  
+    
+  const favourite = JSON.parse(localStorage.getItem("fav") || []) ;
 
-export default Fav
+    const renderrecipes = favourite.map((recipe) => (
+           <RecipeCard key={recipe.id} recipe={recipe}/>
+    ));
+
+    return <div className='flex flex-wrap px-17 mt-7'>
+    {favourite.length > 0 ? renderrecipes : "No recipes found"}</div>;
+
+};
+
+export default Fav;

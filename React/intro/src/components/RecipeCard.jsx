@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const RecipeCard = ({ recipe }) => {
+const   RecipeCard = ({ recipe }) => {
   const { id, image, title, desc, chef } = recipe;
 
   return (

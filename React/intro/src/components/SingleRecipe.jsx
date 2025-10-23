@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import { useForm } from "react-hook-form";
@@ -32,100 +32,129 @@ const SingleRecipe = () => {
     const copydata = [...data];
     copydata[index] = { ...copydata[index], ...recipe };
     setdata(copydata);
-            localStorage.setItem("recipe",JSON.stringify(copydata));
+    localStorage.setItem("recipe", JSON.stringify(copydata));
     toast.success("Recipe updated");
   };
 
   const DeleteHandler = () => {
     const filterdata = data.filter((r) => r.id != params.id);
     setdata(filterdata);
-            localStorage.setItem("recipe",JSON.stringify(filterdata));
+    localStorage.setItem("recipe", JSON.stringify(filterdata));
     toast.success("Recipe deleted");
     navigate("/showcaserecipe");
   };
 
   if (!recip) return "Loading...";
 
+  // Favourite State
+  const [favourite, setfavourite] = useState(
+    JSON.parse(localStorage.getItem("fav")) || []
+  );
 
- const favourite = JSON.parse(localStorage.getItem("fav")) || [];
+  //  Add to favourite
+  const FavHandler = () => {
+    const alreadyFav = favourite.find((f) => f.id == recip?.id);
+    if (alreadyFav) return toast.info("Already in favourites");
 
- const FavHandler = () => {
-  
- }
+    const copyfav = [...favourite, recip];
+    setfavourite(copyfav);
+    localStorage.setItem("fav", JSON.stringify(copyfav));
+    toast.success("Added to favourites ❤️");
+  };
 
- 
- const UnFavHandler = () =>{
-  const filterfav = favourite.filter((f) => f.id != recip?.id);
-  localStorage.setItem("fav", JSON.stringify(filterfav));
+  // Remove from favourite
+  const UnFavHandler = () => {
+    const filterfav = favourite.filter((f) => f.id != recip?.id);
+    setfavourite(filterfav);
+    localStorage.setItem("fav", JSON.stringify(filterfav));
+    toast.info("Removed from favourites 💔");
+  };
 
- }
+  useEffect(() => {
+    console.log("singleRecipe.jsx mounted");
+    return () => {
+      console.log("singleRecipe.jsx unmounted");
+    };
+  }, []);
+
+  const isFavourite = favourite.find((f) => f.id == recip?.id);
 
   return (
-    <div className="w-full flex px-70">
-      <div className="relative left w-1/2 p-17">
-       
-         <i onClick={FavHandler}  className="absolute right-[5%] text-3xl text-red-400 ri-poker-hearts-line"></i>
-       
-        <i onClick={UnFavHandler}  className="absolute right-[5%] text-3xl text-red-400 ri-poker-hearts-fill"></i>
-       
- }
-        <h1 className="text-center text-5xl text-red-700">{recip.title}</h1>
+    <div className="w-full flex px-10">
+      <div className="relative left w-1/2 p-8">
+        {isFavourite ? (
+          <i
+            onClick={UnFavHandler}
+            className="absolute right-[5%] text-3xl text-red-500 ri-poker-hearts-fill cursor-pointer"
+          ></i>
+        ) : (
+          <i
+            onClick={FavHandler}
+            className="absolute right-[5%] text-3xl text-gray-400 ri-poker-hearts-line cursor-pointer"
+          ></i>
+        )}
+
+        <h1 className="text-center text-5xl text-red-700 mt-4">
+          {recip.title}
+        </h1>
+
         {recip.image ? (
-          <img className="w-[20vw]" src={recip.image} alt={recip.title} />
+          <img className="w-[20vw] my-4" src={recip.image} alt={recip.title} />
         ) : (
           <img
-            className="w-[20vw]"
+            className="w-[20vw] my-4"
             src="https://via.placeholder.com/400x200?text=No+Image"
             alt="No image"
           />
         )}
-        <h1>{recip.chef}</h1>
-        <p className="bg-red-700">{recip.desc}</p>
+
+        <h2 className="text-xl font-semibold">{recip.chef}</h2>
+        <p className="bg-red-100 p-3 rounded mt-3">{recip.desc}</p>
       </div>
 
-      <div className="right pl-50 mt-10 p-2">
-        <form className="w-1/2" onSubmit={handleSubmit(UpdatetHandler)}>
+      <div className="right pl-10 mt-10 p-2 w-1/2">
+        <form className="w-full" onSubmit={handleSubmit(UpdatetHandler)}>
           <input
-            className="block border-b outline-0 p-2"
+            className="block border-b outline-0 p-2 mb-2"
             {...register("image")}
             type="url"
             placeholder="Enter Image URL"
           />
 
           <input
-            className="block border-b outline-0 p-2"
+            className="block border-b outline-0 p-2 mb-2"
             {...register("title")}
             type="text"
             placeholder="Recipe Title"
           />
 
           <input
-            className="block border-b outline-0 p-2"
+            className="block border-b outline-0 p-2 mb-2"
             {...register("chef")}
             type="text"
             placeholder="Chef Name"
           />
 
           <textarea
-            className="block border-b outline-0 p-2"
+            className="block border-b outline-0 p-2 mb-2"
             {...register("desc")}
             placeholder="// Start from here"
           ></textarea>
 
           <textarea
-            className="block border-b outline-0 p-2"
+            className="block border-b outline-0 p-2 mb-2"
             {...register("ingredients")}
             placeholder="// Write ingredients separated by commas"
           ></textarea>
 
           <textarea
-            className="block border-b outline-0 p-2"
+            className="block border-b outline-0 p-2 mb-2"
             {...register("inst")}
             placeholder="// Write instructions separated by commas"
           ></textarea>
 
           <select
-            className="block border-b outline-0 p-2"
+            className="block border-b outline-0 p-2 mb-4"
             {...register("category")}
           >
             <option value="breakfast">Breakfast</option>

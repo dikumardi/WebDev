@@ -1,25 +1,18 @@
-import { useEffect } from 'react';
-import axios from './api/axiosconfig';
+  import { useEffect } from 'react';
+  import { asyncgetproducts } from "./store/userActions";
+  import {useDispatch, useSelector} from "react-redux";
 
+  const App = () => {
 
-const App = () => {
-  const getproduct = async () => {
-    try {
-      const res =await axios.get('/products');
-      console.log(res);
-      
-    } catch (error) {
-       console.log(error);
-       
-    }
+    const data = useSelector((state) => state);
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+    asyncgetproducts();
+    },[])
+    return (
+      <div className='bg-red-500'>App</div>
+    )
   }
 
-  useEffect(()=>{
-   getproduct();
-  },[])
-  return (
-    <div className='bg-red-500'>App</div>
-  )
-}
-
-export default App
+  export default App

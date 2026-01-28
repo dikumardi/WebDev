@@ -14,7 +14,7 @@ undefined + 1       //NaN
 NaN == NaN          //false
 0 == false           // true
 0 === false          // flase
-
+//
 
 
 // [] == ![] // true

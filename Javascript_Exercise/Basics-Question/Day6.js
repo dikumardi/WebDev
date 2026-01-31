@@ -184,3 +184,15 @@ console.log('A is greater',a);
   **/
 
 
+// Find the smallest of 3 numbers.
+let a = 21 ;
+let b = 17 ;
+let c = 10 ;
+
+if (a <= b && a <=b) {
+    console.log(a);   
+}else if (b <= a && b <= c)  {
+   console.log(b);
+}
+console.log(c);
+

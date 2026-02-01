@@ -163,8 +163,9 @@ let arr8 = [1, 2, 3, 2, 4, 5, 3];
 let duplicate = [] ;
 for (let i = 0; i < arr8.length; i++) {
     
-    for(j = i + 1 ; i < arr8.length; i++){
-        if (arr8[i] === arr8[j] && !duplicate.includes(arr8[i])) {
+    for(j = i + 1 ; j < arr8.length; i++){
+        if (arr8[i] === arr8[j] && 
+            !duplicate.includes(arr8[i])) {
             duplicate.push(arr8[i])
         }
     }
@@ -195,6 +196,101 @@ for (let i = 0; i < arr11.length; i++) {
 console.log(sumNumber);
 
 
+/** Array Problems
+
+Print all elements of an array in reverse order.
+
+let element = [1,2,3,4,5,6,7];
+let reverseElement = []
+for (let i = element.length - 1; i >= 0; i--) {
+    reverseElement.push(element[i])
+}
+console.log(reverseElement);
+
+// console.log(element.reverse()) using reverse method;
+
+
+
+Find the largest and smallest elements in an array.
+let array = [10,20,12,17,21]
+let largestElement =array[0];
+let smallestElement =array[0];
+for (let i = 0; i < array.length; i++) {
+    if (array[i] >= largestElement) {
+        largestElement = array[i];
+    }else if (array[i] <= smallestElement) {
+                smallestElement =array[i];
+
+    }
+}
+console.log('Largest Element is : ', largestElement);
+console.log('Smallest Element is : ', smallestElement);
+
+
+
+
+Calculate the sum of all odd numbers in an array.
+
+Count how many even numbers are there in an array.
+
+Find duplicate elements in an array.
+
+Merge two arrays and remove duplicates.
+
+Find the second largest number in an array.
+
+Find the average of all numbers in an array.
+
+Move all zeros in an array to the end without changing the order of other elements.
+
+Rotate an array to the right by 1 position.
+
+String Problems
+
+Count the number of vowels and consonants in a string.
+
+Reverse a string without using the reverse() method.
+
+Check if a string is a palindrome.
+
+Count how many times a character appears in a string.
+
+Remove all spaces from a string.
+
+Replace all vowels in a string with *.
+
+Convert the first letter of each word in a string to uppercase.
+
+Check if two strings are anagrams.
+
+Find the longest word in a string.
+
+Count how many words start with a vowel in a sentence
+
+
+
+Mixed / Logic Problems
+
+Find the sum of all numbers divisible by 3 or 5 between 1 and 100.
+
+Print a multiplication table for a number (like 7).
+
+Count how many numbers are prime between 1 and 100.
+
+Check if a number is Armstrong number.
+
+Find factorial of a number using a loop.
+
+Find the GCD of two numbers.
+
+Find the LCM of two numbers.
+
+Generate Fibonacci series up to N terms.
+
+Swap two numbers without using a third variable.
+
+Print a number pyramid (pattern printing).
+**/
 
 
 
@@ -202,11 +298,29 @@ console.log(sumNumber);
 
 
 
+// Calculate the sum of all odd numbers in an array.
+let number =[1,2,3,4,5,6,7,8,9,10];
+let sumOdd = 0;
+for (let i = 0; i < number.length; i++) {
+    if (number[i] % 2 !== 0) {
+       sumOdd +=number[i]; 
+    }
+}
+
+console.log(sumOdd);
 
 
 
 
+// Find the smallest of 3 numbers.
+let a = 21 ;
+let b = 17 ;
+let c = 10 ;
 
-
-
+if (a <= b && a <=b) {
+    console.log(a);   
+}else if (b <= a && b <= c)  {
+   console.log(b);
+}
+console.log(c);
 

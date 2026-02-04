@@ -88,7 +88,27 @@ for (let i = 0; i < newarray.length; i++) {
 console.log(duplicates);
 
 //22. Move all zeros in an array to the end.
+let array2 = [0, 1, 0, 3, 12];
+let result = [];
+let zeroCount = 0;
+
+for (let i = 0; i < array2.length; i++) {
+    if (array2[i] === 0) {
+        zeroCount++;
+    }else{
+        result.push(array2[i]);
+    }
+}
+for (let i = 0; i < zeroCount; i++) {
+   result.push(0);
+}
+console.log("Result : ", result);
+
+
 //23.Find second largest number in an array.
+
+let numb = [10, 20, 30, 40];
+
 
 
 //24.Average of all numbers in an array.
@@ -100,3 +120,15 @@ for (let i = 0; i < numbers.length; i++) {
 }
 let average = sumNumber / numbers.length
 console.log('Avegare is :', average);
+
+//Remove duplicates from array
+// [1,2,3,2,4,1] → [1,2,3,4]
+
+let number1 = [1,2,3,2,4,1] 
+let unique = []
+for (let i = 0; i < number1.length; i++) {
+  if (!unique.includes(number1[i])) {
+   unique.push(number1[i])
+  }
+}
+console.log(unique);

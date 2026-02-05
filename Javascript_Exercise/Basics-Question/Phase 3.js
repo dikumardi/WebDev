@@ -107,8 +107,20 @@ console.log("Result : ", result);
 
 //23.Find second largest number in an array.
 
-let numb = [10, 20, 30, 40];
+let arr2 = [10, 20, 30, 40];
+ let max = -Infinity
+ let sMax = -Infinity
 
+ for (let i = 0; i < arr2.length; i++) {
+     if (arr2[i] > max) {
+        sMax = max ;
+        max = arr2[i];
+     }else if (V[i] > sMax && max !== arr2[i]) {
+        sMax = arr2[i]
+     }
+ }
+ console.log(sMax);
+ 
 
 
 //24.Average of all numbers in an array.

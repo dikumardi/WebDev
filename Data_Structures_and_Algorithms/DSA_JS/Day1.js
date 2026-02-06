@@ -77,14 +77,16 @@ console.log("Reverse : ", rev);
 
 // Q6. Check if an array is sorted in ascending order
 let arr6 = [2, 4, 6, 8, 10];
-let check = arr6[0];
-for (let i = 0; i < arr6.length; i++) {
-   for (let j = i + 1; j < arr6.length; j++) {
-     if (arr6[i] <= arr6[j]) {
-        console.log("Array is Sorted in ascending order");    
-     }
+let isSorted = true 
+for (let i = 0; i < arr6.length - 1; i++) {
+   if (arr6[i] > arr6[i + 1]) {
+    isSorted = false ;
+    break;
    }
+    
 }
+console.log(isSorted);
+
 
 //  Q7. Find the sum of all elements
 let arr7 = [10, 20, 30];

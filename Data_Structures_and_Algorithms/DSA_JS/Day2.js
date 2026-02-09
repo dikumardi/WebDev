@@ -19,3 +19,23 @@ for (let i = 1; i < arr1.length; i++) {
 }
 
 console.log(maxDiff); 
+
+
+// Q2. Check if array contains duplicate elements
+
+let arr2 = [1, 2, 3, 4, 2];
+let isDuplicate = false;
+
+for (let i = 0; i < arr2.length; i++) {
+  for (let j = i + 1; j < arr2.length; j++) {
+    if (arr2[i] === arr2[j]) {
+      isDuplicate = true;
+      break;
+    }
+  }
+  if (isDuplicate)
+     break;
+}
+
+console.log(isDuplicate); 
+

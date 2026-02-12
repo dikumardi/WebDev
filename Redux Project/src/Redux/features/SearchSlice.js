@@ -1,23 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
-  value: 0,
-}
 
-export const MediaSlice = createSlice({
-      name : 'counter',
-       initialState,
+
+export const searchSlice = createSlice({
+      name : 'search',
+       initialState:{
+          query:'',
+          activeTab:'photos',
+          results:[],
+          loading:false,
+          error:null
+       },
        reducers:{
-        increment:(state)=>{
-           state.value += 1
-        },
-        decrement:(state)=>{
-             state.value -= 1
-        },
-        incrementByAmount:(state,actions)=>{
-             state.value += actions.payload
-        },
+          setQuery(state,action){
+               state.query = action.payload
+          },
+          setActiveTabs(state,action){
+           state.activeTab = action.payload
+
+          },
+          setResults(state,action){
+               state.results = action.payload
+               state.loading = false
+          },
+          setLoading(state,action){
+               state.loading =true
+               state.error=null
+          },
+          setError(state,action){
+          state.error =action.payload
+           state.loading = false
+          },
+          clearResults(state){
+               state.results = []
+          }
        }
+       
+       
 })
 
-export  const  {increment,decrement,incrementByAmount} = MediaSlice.actions
-export default MediaSlice.reducer
+export  const  {setQuery,setActiveTabs,setLoading,setResults,setError,clearResults} = searchSlice.actions
+export default searchSlice.reducer

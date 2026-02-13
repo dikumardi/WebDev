@@ -11,7 +11,7 @@
     asyncgetproducts();
     },[])
     return (
-      <div className='bg-red-500'>App</div>
+      <div className='w-screen h-screen bg-gray-800 text-white'>App</div>
     )
   }
 

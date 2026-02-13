@@ -1,8 +1,10 @@
-import React from 'react'
-
 const ResultCard = () => {
   return (
-    <div>ResultCard</div>
+    <div 
+     className='w-96 h-96 bg-amber-300 rounded'
+     >
+    
+    </div>
   )
 }
 

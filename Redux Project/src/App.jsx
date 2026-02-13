@@ -8,6 +8,7 @@ const App = () => {
     <div className=''>
     <SearchBar/>
     <Tabs/>
+    <ResultGrid/>
     </div>
   )
 }

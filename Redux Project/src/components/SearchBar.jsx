@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuery } from "../Redux/features/SearchSlice";
 
@@ -8,13 +8,13 @@ const SearchBar = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(setQuery(Text));
+    dispatch(setQuery(text));
     
-    settext("");
+    settext(" ");
   };
 
   return (
-    <div>
+    <div className="bg-gray-400 w-full h-[20%]">
       <form
         className="flex  gap-3 py-7 px-30"
         onSubmit={(e) => {
@@ -22,7 +22,7 @@ const SearchBar = () => {
         }}
       >
         <h1 className="text-2xl text-center py-3">
-          Lo<span className="text-emerald-900">GGo</span>{" "}
+          Lo<span className="text-emerald-900">GGo</span>
         </h1>
         <input
           required
@@ -34,7 +34,8 @@ const SearchBar = () => {
           type="text"
           placeholder="Search here ..."
         />
-        <button className="active:scale-95 cursor-pointer border px-4 py-2 text-xl rounded outline-none bg-emerald-500 text-white">
+        <button 
+        className="active:scale-95 cursor-pointer border px-4 py-2 text-xl rounded outline-none bg-emerald-500 text-white">
           Search
         </button>
       </form>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGIF, fetchPhotos, fetchVideos } from "../api/MediaApi";
 import { setError, setLoading, setResults } from "../Redux/features/SearchSlice";
@@ -25,6 +25,7 @@ const ResultGrid = () => {
           title: item.alt_description,
           thumbnail: item.urls.small,
           src: item.urls.full,
+          url:item.links.html
         }));
       }
       if (activeTab == "videos") {
@@ -35,6 +36,7 @@ const ResultGrid = () => {
           title: item.user.name || "video",
           thumbnail: item.image,
           src: item.video_files[0].link,
+          url:item.url
         }));
       }
       if (activeTab == "GIFs") {
@@ -45,6 +47,10 @@ const ResultGrid = () => {
           title: item.title || "GIFs",
           thumbnail: item.media_formats.tinygif.url,
           src: item.media_formats.gif.url,
+          url:item.url
+          
+          
+          
         }));
       }
 
@@ -56,19 +62,19 @@ const ResultGrid = () => {
     }
     
     getData();
-  }, [query, activeTab]);
+  }, [query, activeTab,dispatch]);
 
    if (error) return <h1>Error</h1>
    if (loading) return <h1>Loading</h1>
-  return <div>
+
+  return (
+    <div     className=" justify-center flex flex-wrap gap-7 overflow-auto px-10">
    {results.map((item,idx)=>{
-    return <div
-    className=" justify-center flex flex-wrap gap-7 overflow-auto px-10"
-    key={idx}>
+    return <div key={idx}>
     <ResultCard item={item} />
     </div>
    })}
   </div>
-};
+)};
 
 export default ResultGrid;

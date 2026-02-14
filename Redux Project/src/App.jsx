@@ -1,14 +1,11 @@
-import React from 'react'
-import SearchBar from './components/SearchBar'
-import Tabs from './components/Tabs'
-import ResultGrid from './components/ResultGrid'
+import HomePage from "./pages/HomePage"
 
 const App = () => {
   return (
-    <div className=''>
-    <SearchBar/>
-    <Tabs/>
-    <ResultGrid/>
+    <div className='min-h-screen text-white w-full bg-gray-700'>
+    
+
+    <HomePage/>
     </div>
   )
 }

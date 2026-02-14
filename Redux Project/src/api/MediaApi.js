@@ -21,7 +21,7 @@ export const  fetchVideos = async (query,per_page=20) => {
 }
 
 export const  fetchGIF = async (query,limit=20) => {
-   let res = await axios.get('https://g.tenor.com/v1/search',{
+   let res = await axios.get('https://tenor.googleapis.com/v2/search',{
     params:{query,key:TENOR_KEY,limit},
    })
    return res.data 

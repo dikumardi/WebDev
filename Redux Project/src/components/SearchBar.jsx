@@ -10,20 +10,18 @@ const SearchBar = () => {
     e.preventDefault();
     dispatch(setQuery(text));
     
-    settext(" ");
+    settext("");
   };
 
   return (
-    <div className="bg-gray-400 w-full h-[20%]">
+    <div className="bg-gray-600 w-full h-[20%]">
       <form
         className="flex  gap-3 py-7 px-30"
         onSubmit={(e) => {
           submitHandler(e);
         }}
       >
-        <h1 className="text-2xl text-center py-3">
-          Lo<span className="text-emerald-900">GGo</span>
-        </h1>
+       
         <input
           required
           className="w-full border px-6 py-3 text-xl rounded outline-none"

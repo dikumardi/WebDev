@@ -1,14 +1,17 @@
-import { useDispatch } from "react-redux"
-import { addCollection } from "../Redux/features/CollectionSlice"
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { removeCollection } from '../Redux/features/CollectionSlice'
 
-const ResultCard = ({item}) => {
-     
-  const dispatch = useDispatch()
-  const addToCollection=(item)=>{
-    dispatch(addCollection(item))
-  }
+const CollectionCard = ({item}) => {
+     const dispatch = useDispatch()
+
+     const removeFromCollection = (item)=>{
+      dispatch(removeCollection(item.id))
+     }
 
   return (
+    
+    <div>
     <div 
      className='w-96 h-96 bg-amber-300 rounded relative'
      >
@@ -35,13 +38,14 @@ const ResultCard = ({item}) => {
     className="text-lg font-semibold capitalize"
     >item.title</h2>
     <button 
-    onClick={()=>{addToCollection(item)}}
+    onClick={()=>{removeFromCollection(item)}}
     className="bg-blue-600 text-white rounded px-3 py-2 font-medium cursor-pointer active:scale-95"
-    >Save</button>
+    >Remove</button>
     </div>
     }
+    </div>
     </div>
   )
 }
 
-export default ResultCard
+export default CollectionCard

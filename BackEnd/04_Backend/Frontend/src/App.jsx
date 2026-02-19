@@ -1,14 +1,16 @@
 import React from 'react'
+import { Route, Router, Routes } from 'react-router-dom'
 import CreatePost from './Pages/CreatePost'
 import FeedPage from './Pages/FeedPage'
 
 const App = () => {
   return (
+    
     <div>
-     
-    
-    
-    <FeedPage/>
+    <Routes>
+    <Route path='/' element={<CreatePost/>} />
+    <Route path='/feed' element={<FeedPage/>} />
+    </Routes>
     </div>
   )
 }

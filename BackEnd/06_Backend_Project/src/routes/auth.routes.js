@@ -6,15 +6,7 @@ const router = express.Router();
 
 router.post('/register', authController.registerUser)
 
-module.exports = router;
+router.post('/login', authController.loginUser)
 
-/**
-  
-{
-    "username":"test",
-    "email":"test@test.com",
-    "password":"test",  
-}  
-  "role":"artist"
- 
-**/
+
+module.exports = router;

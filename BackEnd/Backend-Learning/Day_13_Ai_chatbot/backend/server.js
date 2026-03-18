@@ -6,11 +6,15 @@ const generateResponse = require("./src/services/ai.service");
 const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
-  /* options */
+  cors: {
+        origin: "http://localhost:5173", // Adjust 
+    }
 });
 const chatHistory = [];
 
 io.on("connection", (socket) => {
+  console.log('A user is connected');
+  
   socket.on("disconnect", () => {
     console.log("A user is disconnected");
   });

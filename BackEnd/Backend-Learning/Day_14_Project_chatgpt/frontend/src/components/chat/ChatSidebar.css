@@ -76,6 +76,7 @@
 .chat-list-item {
     text-align: left;
     background: #0d0d0d;
+    color: white;
     border: 1px solid #1c1c1c;
     padding: var(--space-3) var(--space-4);
     border-radius: 12px;

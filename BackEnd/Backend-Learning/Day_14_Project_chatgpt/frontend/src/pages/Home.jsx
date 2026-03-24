@@ -27,7 +27,8 @@ const Home = () => {
   const [ sidebarOpen, setSidebarOpen ] = React.useState(false);
   const [socket, setSocket] = useState(null)
 
-  const activeChat = chats.find(c => c.id === activeChatId) || null;
+  // const activeChat = 
+  chats.find(c => c.id === activeChatId) || null;
 
   const [ messages, setMessages ] = useState([
    
@@ -73,6 +74,7 @@ const Home = () => {
       dispatch(sendingFinished());
     });
 
+    // setSocket(tempSocket)
     setSocket(tempSocket)
 
   }, []);

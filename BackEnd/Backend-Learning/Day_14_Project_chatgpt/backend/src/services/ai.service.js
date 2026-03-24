@@ -52,7 +52,7 @@ async function generateResponse(content) {
 </persona>`
     }
   });
-  return response.text;
+return response.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
 }
 
 async function generateVector(content) {
